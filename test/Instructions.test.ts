@@ -24,4 +24,15 @@ describe("Instructions", () => {
     const instructions = new Instructions(inputString);
     expect(instructions.startingLocation).toBe(expectedStartingLocation);
   });
+
+  it("has directions", () => {
+    const expectedDirections = "MMLM";
+    const gridSizeInput = "5 5\n";
+    const startingLocation = "0 0 N\n";
+    const directions = expectedDirections + "\n";
+    const inputString = gridSizeInput + startingLocation + directions;
+
+    const instructions = new Instructions(inputString);
+    expect(instructions.directions).toBe(expectedDirections);
+  });
 });

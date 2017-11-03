@@ -12,4 +12,8 @@ export default class Instructions {
   public get startingLocation() {
     return this.input.split("\n")[1] || "";
   }
+
+  public get directions() {
+    return this.input.split("\n")[2] || "";
+  }
 }
