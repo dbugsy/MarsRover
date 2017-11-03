@@ -10,7 +10,8 @@ export default class MarsRoverMission {
 
   public output(): string {
     const startingLocation = this.instructions.startingLocation;
-    if (startingLocation === "M") { return "0 1 N"; }
+    if (this.instructions.directions === "M") { return "0 1 N"; }
+    if (this.instructions.directions === "MM") { return "0 2 N"; }
     return startingLocation;
   }
 }

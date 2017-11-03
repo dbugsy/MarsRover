@@ -10,16 +10,24 @@ describe("when placing rovers", () => {
   });
 
   it("gets the position of a rover", () => {
-    const startingPosition = "\n0 0 N";
+    const startingPosition = "5 5\n0 0 N";
     const newPosition = "0 0 N";
     const mission = new MarsRoverMission(new Instructions(startingPosition));
     expect(mission.output()).toEqual(newPosition);
   });
 
   it("moves the rover", () => {
-    const startingPosition = "0 0 N";
+    const startingPosition = "5 5\n0 0 N";
     const instructions = startingPosition + "\nM";
     const newPosition = "0 1 N";
+    const mission = new MarsRoverMission(new Instructions(instructions));
+    expect(mission.output()).toEqual(newPosition);
+  });
+
+  it("moves the rover twice", () => {
+    const startingPosition = "5 5\n0 0 N";
+    const instructions = startingPosition + "\nMM";
+    const newPosition = "0 2 N";
     const mission = new MarsRoverMission(new Instructions(instructions));
     expect(mission.output()).toEqual(newPosition);
   });
