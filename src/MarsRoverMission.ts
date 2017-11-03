@@ -1,18 +1,16 @@
+import Instructions from "./Instructions";
+
 export default class MarsRoverMission {
 
-  private instructions: string;
+  private instructions: Instructions;
 
-  constructor(instructions: string) {
+  constructor(instructions: Instructions) {
     this.instructions = instructions;
   }
 
-  private get _instructions(): string[] {
-    return this.instructions.split("\n");
-  }
-
   public output(): string {
-    const startingPosition = this._instructions.slice(-1).pop() || "";
-    if (startingPosition === "M") { return "0 1 N"; }
-    return startingPosition;
+    const startingLocation = this.instructions.startingLocation;
+    if (startingLocation === "M") { return "0 1 N"; }
+    return startingLocation;
   }
 }
