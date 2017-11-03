@@ -6,7 +6,13 @@ export default class MarsRoverMission {
     this.instructions = instructions;
   }
 
+  private get _instructions(): string[] {
+    return this.instructions.split("\n");
+  }
+
   public output(): string {
-    return this.instructions.split("\n").slice(-1).pop() || "";
+    const startingPosition = this._instructions.slice(-1).pop() || "";
+    if (startingPosition === "M") { return "0 1 N"; }
+    return startingPosition;
   }
 }

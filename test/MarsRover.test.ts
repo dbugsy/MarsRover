@@ -14,4 +14,13 @@ describe("when placing rovers", () => {
     const mission = new MarsRoverMission(startingPosition);
     expect(mission.output()).toEqual(newPosition);
   });
+
+  it("moves the rover", () => {
+    const startingPosition = "0 0 N";
+    const instructions = startingPosition + "\nM";
+    const newPosition = "0 1 N";
+    const mission = new MarsRoverMission(instructions);
+    expect(mission.output()).toEqual(newPosition);
+  });
+
 });
