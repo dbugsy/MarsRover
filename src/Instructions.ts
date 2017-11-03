@@ -8,4 +8,8 @@ export default class Instructions {
   public get gridSize() {
     return this.input.split("\n")[0] || "";
   }
+
+  public get startingLocation() {
+    return this.input.split("\n")[1] || "";
+  }
 }
